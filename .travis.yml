@@ -1,0 +1,24 @@
+sudo: required
+dist: focal
+language: cpp
+
+os:
+  - linux
+
+compiler:
+  - gcc
+
+before_install:
+  - sudo apt-get update && sudo apt-get --reinstall install -qq build-essential
+  - sudo apt-get --reinstall install -qq libgtest-dev cmake libboost-dev libboost-all-dev
+  - cd /usr/src/gtest
+  - sudo cmake CMakeLists.txt
+  - sudo make
+  - sudo cp *.a /usr/lib
+  - cd $TRAVIS_BUILD_DIR
+
+before_script:
+  - mkdir -p build
+
+script:
+  - cd build; cmake .. ; sudo cmake --build . --target install; ./bin/tfd_cpp_test
