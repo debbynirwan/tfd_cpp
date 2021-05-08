@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/debbynirwan/tfd_cpp.svg?branch=main)](https://travis-ci.com/debbynirwan/tfd_cpp)
 # tfd_cpp
 Total-order Forward Decomposition Algorithm: an HTN Planner library.
 
