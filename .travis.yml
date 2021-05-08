@@ -21,4 +21,4 @@ before_script:
   - mkdir -p build
 
 script:
-  - cd build; cmake .. ; sudo cmake --build . --target install; ./bin/tfd_cpp_test
+  - cd build; cmake .. ; make; ./tests/tfd_cpp_test
