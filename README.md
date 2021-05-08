@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/debbynirwan/tfd_cpp.svg?branch=main)](https://travis-ci.com/debbynirwan/tfd_cpp)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/d6826864d8894a0ea5c1aa27671e6239)](https://www.codacy.com/gh/debbynirwan/tfd_cpp/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=debbynirwan/tfd_cpp&amp;utm_campaign=Badge_Grade)
 # tfd_cpp
 Total-order Forward Decomposition Algorithm: an HTN Planner library.
 
