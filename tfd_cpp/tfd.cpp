@@ -86,7 +86,11 @@ namespace tfd_cpp
                     newTasks.pop_back();
                     newTasks.insert(newTasks.end(), subTasks.value().begin(), subTasks.value().end());
 
-                    return SeekPlan(newTasks, currentState, currentPlan);
+                    auto solution = SeekPlan(newTasks, currentState, currentPlan);
+                    if (not solution.empty())
+                    {
+                        return solution;
+                    }
                 }
             }            
         }
@@ -106,18 +110,23 @@ namespace tfd_cpp
         
         if (not applicableOperators.empty())
         {
-            const auto chosenOperator = applicableOperators.begin();
-            const auto newState = chosenOperator->func(currentState, chosenOperator->task.parameters);
-            
-            if (newState)
+            for (const auto& chosenOperator : applicableOperators)
             {
-                std::vector<Task> newTasks(tasks);
-                newTasks.pop_back();
-                currentPlan.push_back(*chosenOperator);
+                const auto newState = chosenOperator.func(currentState, chosenOperator.task.parameters);
+                
+                if (newState)
+                {
+                    std::vector<Task> newTasks(tasks);
+                    newTasks.pop_back();
+                    currentPlan.push_back(chosenOperator);
 
-                return SeekPlan(newTasks, newState.value(), currentPlan);
+                    auto solution = SeekPlan(newTasks, newState.value(), currentPlan);
+                    if (not solution.empty())
+                    {
+                        return solution;
+                    }
+                }
             }
-            //TODO: if an operator fails, we may want to nondeterministically try other options 
         }
         else
         {
