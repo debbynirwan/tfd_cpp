@@ -38,7 +38,7 @@ To execute the example after building it, you can simply execute:
 You can follow the examples to write your own planning domain and problem.
 
 # Documentation
-If you're interested in understanding the concepts and algorithm you can read the blog post here(to be updated).
+If you're interested in understanding the concepts and algorithm you can read the blog post [here](https://towardsdatascience.com/total-order-forward-decomposition-an-htn-planner-cebae7555fff).
 
 # Issues
 Please report issues if you found bugs or raise a Pull Request.
